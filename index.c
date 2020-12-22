@@ -3,8 +3,9 @@
 moe_t moe;
 
 /**
- *dn - does nothing
- *Return: void no return
+ *free_stack - frees a stack
+ *@st: the stack
+ *Return: void
  */
 
 void free_stack(stack_t **st)
@@ -21,6 +22,11 @@ void free_stack(stack_t **st)
 	}
 	free(*st);
 }
+
+/**
+ *dn - does nothing
+ *Return: void no return
+ */
 
 void dn(void)
 {

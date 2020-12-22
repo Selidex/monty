@@ -2,6 +2,7 @@
 
 /**
  *err_push - prints error message
+ *@st: the stack
  *@ln: line number
  *Return: void no return
  */
@@ -17,6 +18,7 @@ void err_push(unsigned int ln, stack_t **st)
 
 /**
  *err_malloc - prints error message
+ *@st: the stack
  *Return: nothing
  */
 

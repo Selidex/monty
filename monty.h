@@ -47,7 +47,7 @@ typedef struct instruction_s
  * for stack, queues, LIFO, FIFO
  */
 
-typedef struct mode_s
+typedef struct moe_s
 {
 	int mode;
 	FILE *fp;
