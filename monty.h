@@ -1,6 +1,12 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdlib.h>
+#include <stdio.h>
+#include <stddef.h>
+#include <string.h>
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -12,9 +18,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -27,8 +33,31 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct moe_s - collection of variables
+ * @mode: stack or queue
+ * @fp: file to be read
+ * @buf: the buffer
+ *
+ * Description: collection of variables
+ * for stack, queues, LIFO, FIFO
+ */
+
+typedef struct mode_s
+{
+	int mode;
+	FILE *fp;
+	char *buf;
+} moe_t;
+
+extern moe_t moe;
+
+int push(stack_t **st, unsigned int ln, char *pa);
+void pall(stack_t **stack, unsigned int line_number);
+void err_push(unsigned int ln);
+void err_malloc(void);
 #endif /* MONTY_H */
