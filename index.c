@@ -4,8 +4,6 @@ moe_t moe;
 
 /**
  *dn - does nothing
- *@st: stack
- *@ln: line number
  *Return: void no return
  */
 
