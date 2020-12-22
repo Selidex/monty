@@ -6,9 +6,10 @@
  *Return: void no return
  */
 
-void err_push(unsigned int ln)
+void err_push(unsigned int ln, stack_t **st)
 {
 	fprintf(stderr, "L%d: usage: push integer\n", ln);
+	free_stack(st);
 	free(moe.buf);
 	fclose(moe.fp);
 	exit(EXIT_FAILURE);
@@ -19,10 +20,11 @@ void err_push(unsigned int ln)
  *Return: nothing
  */
 
-void err_malloc(void)
+void err_malloc(stack_t **st)
 {
 	fprintf(stderr, "Error: malloc failed\n");
 	free(moe.buf);
+	free_stack(st);
 	fclose(moe.fp);
 	exit(EXIT_FAILURE);
 }

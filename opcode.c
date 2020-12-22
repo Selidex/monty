@@ -14,19 +14,19 @@ int push(stack_t **st, unsigned int ln, char *pa)
 	int pai;
 
 	if (pa == NULL)
-	{	err_push(ln);
+	{	err_push(ln, st);
 		return (1); }
 	if (strcmp(pa, "0") == 0)
 		pai = 0;
 	else
 	{
 		if (atoi(pa) == 0)
-		{	err_push(ln);
+		{	err_push(ln, st);
 			return (1); }
 		pai = atoi(pa);	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-	{	err_malloc();
+	{	err_malloc(st);
 		return (1); }
 	new->n = pai;
 	if (*st == NULL)

@@ -58,6 +58,7 @@ extern moe_t moe;
 
 int push(stack_t **st, unsigned int ln, char *pa);
 void pall(stack_t **stack, unsigned int line_number);
-void err_push(unsigned int ln);
-void err_malloc(void);
+void err_push(unsigned int ln, stack_t **st);
+void err_malloc(stack_t **st);
+void free_stack(stack_t **st);
 #endif /* MONTY_H */

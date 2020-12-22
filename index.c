@@ -7,6 +7,21 @@ moe_t moe;
  *Return: void no return
  */
 
+void free_stack(stack_t **st)
+{
+	stack_t *current;
+
+	current = *st;
+
+	while (*st != NULL && (*st)->next != NULL)
+	{
+		current = (*st)->next;
+		free(*st);
+		(*st) = current;
+	}
+	free(*st);
+}
+
 void dn(void)
 {
 	int i = 0;
@@ -111,9 +126,11 @@ int main(int argc, char *argv[])
 			{	fprintf(stderr, "L%d: unknown instruction %s\n",
 					ln, moe.buf);
 				fclose(moe.fp);
+				free_stack(&st);
 				free(moe.buf);
 				exit(EXIT_FAILURE); } }
 		ln++;	}
 	free(moe.buf);
+	free_stack(&st);
 	fclose(moe.fp);
 	return (0); }
