@@ -3,6 +3,20 @@
 moe_t moe;
 
 /**
+ *dn - does nothing
+ *@st: stack
+ *@ln: line number
+ *Return: void no return
+ */
+
+void dn(void)
+{
+	int i = 0;
+
+	i = i * 2;
+}
+
+/**
  *c_fn - checks if the opcode is valid, and if so runs it
  *@buf: the opcode
  *Return: either a function pointer, or neg 1 on failure
@@ -15,7 +29,9 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		{NULL, NULL}
 	};
 	int i, oc = 1;
+	void (*f)();
 
+	f = &dn;
 	if (buf == NULL || strcmp(buf, "\n") == 0)
 		return (NULL);
 	for (i = 0; i < oc; i++)
@@ -26,7 +42,7 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		}
 	}
 	moe.mode = 3;
-	return (NULL);
+	return (f);
 }
 
 /**
@@ -81,6 +97,7 @@ int main(int argc, char *argv[])
 	{	fprintf(stderr, "Error: malloc failed\n");
 		fclose(moe.fp);
 		exit(EXIT_FAILURE);	}
+	moe.mode = 1;
 	while (1)
 	{
 		c = getline(&moe.buf, &bufsize, moe.fp);
