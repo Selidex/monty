@@ -13,9 +13,9 @@ void free_stack(stack_t **st)
 
 	current = *st;
 
-	while (*st != NULL && (*st)->next != NULL)
+	while (*st != NULL && (*st)->prev != NULL)
 	{
-		current = (*st)->next;
+		current = (*st)->prev;
 		free(*st);
 		(*st) = current;
 	}
