@@ -51,11 +51,11 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		{"nop", nop},
 		{"add", add},
 		{"sub", sub},
+		{"div", divi},
 		{NULL, NULL}
 	};
 	int i, oc = 7;
 	void (*f)();
-
 	f = &dn;
 	if (buf == NULL || strcmp(buf, "\n") == 0)
 		return (NULL);
