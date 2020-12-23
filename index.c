@@ -50,9 +50,10 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		{"swap", swap},
 		{"nop", nop},
 		{"add", add},
+		{"sub", sub},
 		{NULL, NULL}
 	};
-	int i, oc = 6;
+	int i, oc = 7;
 	void (*f)();
 
 	f = &dn;
