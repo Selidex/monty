@@ -74,7 +74,6 @@ void rmsp(char *str)
 {
 	int i = 0, j = 0;
 
-	strtok(str, "\n");
 	for (; str[i] != '\0'; i++)
 	{
 		while (str[i] == ' ' && (str[i + 1] == ' '
@@ -87,7 +86,7 @@ void rmsp(char *str)
 		j++;
 	}
 	str[j] = '\0';
-	strtok(str, " ");
+	strtok(str, " \t\n");
 }
 
 /**
@@ -123,7 +122,13 @@ int main(int argc, char *argv[])
 		if (c == EOF)
 		{       break;		}
 		rmsp(moe.buf);
-		if (strcmp(moe.buf, "push") == 0)
+		printf("%d: %s\n", ln, moe.buf);
+		if (strcmp(moe.buf, "\n") == 0)
+		{
+			ln++;
+			continue;
+		}
+		else if (strcmp(moe.buf, "push") == 0)
 			push(&st, ln, strtok(NULL, " "));
 		else
 		{
