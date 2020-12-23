@@ -118,3 +118,36 @@ void pop(stack_t **stack, unsigned int line_number)
 		*stack = NULL;
 	}
 }
+
+/**
+ *swap - flips first and last element
+ *@stack: the stack
+ *@line_number: line number
+ *Return: void no return
+ */
+
+void swap(stack_t **stack, unsigned int line_number)
+{
+	int len = 0, temp;
+	stack_t *current = *stack;
+
+	if (*stack != NULL)
+	{
+		while (current->prev != NULL)
+		{
+			current = current->prev;
+			len++;
+		}
+		len++;
+	}
+	if (*stack == NULL || len < 2)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+	current = (*stack)->prev;
+	temp = current->n;
+	current->n = (*stack)->n;
+	(*stack)->n = temp;
+}

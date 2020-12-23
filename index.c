@@ -47,9 +47,10 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},
+		{"swap", swap},
 		{NULL, NULL}
 	};
-	int i, oc = 3;
+	int i, oc = 4;
 	void (*f)();
 
 	f = &dn;
@@ -58,9 +59,7 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 	for (i = 0; i < oc; i++)
 	{
 		if (strcmp(buf, inst[i].opcode) == 0)
-		{
-			return (inst[i].f);
-		}
+		{	return (inst[i].f);	}
 	}
 	moe.mode = 3;
 	return (f);
