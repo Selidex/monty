@@ -1,4 +1,4 @@
-#include "monty.h"
+B#include "monty.h"
 
 /**
  *add - adds tos + tos1
@@ -59,7 +59,7 @@ void sub(stack_t **stack, unsigned int line_number)
 		}
 	if (*stack == NULL || len < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n",
+		fprintf(stderr, "L%d: can't sub, stack too short\n",
 			line_number);
 		exit(EXIT_FAILURE);
 	}
