@@ -11,7 +11,7 @@
 int push(stack_t **st, unsigned int ln, char *pa)
 {
 	stack_t *new;
-	int pai;
+	int pai, i = 0;
 
 	if (pa == NULL)
 	{	err_push(ln, st);
@@ -20,9 +20,17 @@ int push(stack_t **st, unsigned int ln, char *pa)
 		pai = 0;
 	else
 	{
-		if (atoi(pa) == 0)
-		{	err_push(ln, st);
-			return (1); }
+		while (pa[i])
+		{
+			if (pa[i] == '-' || pa[i] == '.')
+				i++;
+			if (pa[i] == '\n')
+				break;
+			if (isdigit(pa[i]) == 0)
+			{	err_push(ln, st);
+				return (1); }
+			i++;
+		}
 		pai = atoi(pa);	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
