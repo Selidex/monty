@@ -46,9 +46,10 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 	instruction_t inst[] =	{
 		{"pall", pall},
 		{"pint", pint},
+		{"pop", pop},
 		{NULL, NULL}
 	};
-	int i, oc = 2;
+	int i, oc = 3;
 	void (*f)();
 
 	f = &dn;
