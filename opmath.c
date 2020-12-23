@@ -73,7 +73,7 @@ void sub(stack_t **stack, unsigned int line_number)
 }
 
 /**
- *div - divides tos / tos1
+ *divi - divides tos / tos1
  *@stack: the stack
  *@line_number: line number
  *Return: void no return

@@ -56,6 +56,7 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 	};
 	int i, oc = 7;
 	void (*f)();
+
 	f = &dn;
 	if (buf == NULL || strcmp(buf, "\n") == 0)
 		return (NULL);
