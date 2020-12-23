@@ -122,7 +122,6 @@ int main(int argc, char *argv[])
 		if (c == EOF)
 		{       break;		}
 		rmsp(moe.buf);
-		printf("%d: %s\n", ln, moe.buf);
 		if (strcmp(moe.buf, "\n") == 0)
 		{
 			ln++;
