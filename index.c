@@ -48,9 +48,11 @@ void (*c_fn(char *buf))(stack_t **, unsigned int)
 		{"pint", pint},
 		{"pop", pop},
 		{"swap", swap},
+		{"nop", nop},
+		{"add", add},
 		{NULL, NULL}
 	};
-	int i, oc = 4;
+	int i, oc = 6;
 	void (*f)();
 
 	f = &dn;
